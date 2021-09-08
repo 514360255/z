@@ -14,21 +14,92 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ant-layout{
+.ant-layout {
   z-index: 999999;
 }
-.ant-pro-sider-logo{
+.ant-pro-sider-logo {
   height: 106px !important;
 }
-.ant-layout-header{
-  width: 100vw !important;
-  height: 106px !important;
+.ant-layout-header {
   position: fixed;
-  left: 0;
   top: 0;
   right: 0;
+  left: 0;
   z-index: 9999;
+  width: 100vw !important;
+  height: 106px !important;
 }
-.ant-layout-content{
+.ant-layout-content {
   margin-top: 106px !important;
 }
+.ant-pro-sider-light {
+  background-color: #dfedf6 !important;
+  .ant-menu-submenu-title,
+  .ant-menu-item-only-child {
+    background-color: #d5e7f1 !important;
+  }
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid #b9cfd6;
+  }
+  .ant-pro-menu-item-title {
+    color: #005093;
+    font-size: 12px !important;
+  }
+  .ant-menu-item-selected,
+  .ant-menu-item-selected:hover {
+    &:after {
+      display: none !important;
+    }
+    .ant-pro-menu-item-title {
+      color: #fff !important;
+    }
+    background-color: #5e87b0 !important;
+  }
+  .ant-menu-sub {
+    .ant-menu-item {
+      &:not(:last-child) {
+        border-bottom: none !important;
+      }
+    }
+  }
+  .anticon {
+    color: #105c99;
+  }
+  .ant-pro-menu-item {
+    display: flex;
+    align-items: center;
+    &:before {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      margin-right: 5px;
+      background-image: url('./assets/icon8.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      content: ' ';
+    }
+  }
+  .ant-menu-submenu-open {
+    .ant-menu-submenu-title .ant-pro-menu-item {
+      &:before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .ant-menu-submenu-arrow {
+    display: none !important;
+  }
+}
+//.ant-pro-sider-links{
+//  position: absolute;
+//  width: 5px;
+//  background-color: #2677b4;
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  z-index: 999;
+//}

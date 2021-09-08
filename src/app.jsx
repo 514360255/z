@@ -60,5 +60,6 @@ export const layout = ({ initialState }) => {
     onPageChange: () => redirectLogin(initialState),
     menuHeaderRender: undefined,
     ...initialState?.settings,
+    collapsedButtonRender: () => null,
   };
 };
