@@ -2,6 +2,7 @@ import { PageLoading } from '@ant-design/pro-layout';
 import { history } from 'umi';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import Header from './components/Header';
+import {createRef} from "react";
 
 const loginPath = '/user/login';
 
@@ -46,20 +47,18 @@ const redirectLogin = (initialState) => {
   return () => {};
 };
 
-export const layout = ({ initialState }) => {
+export const layout = props => {
+  const { initialState } = props;
   return {
+    rightContentRender: () => <Header {...props} />,
+    disableContentMargin: true,
     title: false,
     logo: false,
     layout: 'side',
     fixedHeader: true,
-    rightContentRender: () => <Header />,
-    disableContentMargin: false,
-    waterMarkProps: {
-      content: initialState?.currentUser?.name,
-    },
+    collapsed: initialState.collapsed,
     onPageChange: () => redirectLogin(initialState),
     menuHeaderRender: undefined,
     ...initialState?.settings,
-    collapsedButtonRender: () => null,
   };
 };
