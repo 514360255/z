@@ -4,6 +4,7 @@ import logo from '../../assets/logo.svg';
 import icon1 from '../../assets/icon1.png';
 import icon2 from '../../assets/icon2.png';
 import icon3 from '../../assets/icon3.png';
+import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
 
 export default props => {
   const { initialState, initialState: { collapsed }, setInitialState } = props;
@@ -14,8 +15,10 @@ export default props => {
 
   return (
     <>
-      <div className='collapsed' style={{left: !collapsed ? '208px' : '48px'}}>
-        <span onClick={toggleCollapsed} />
+      <div className='collapsed' style={{left: !collapsed ? '203px' : '43px'}}>
+        <span onClick={toggleCollapsed}>
+          {!collapsed ? <CaretLeftOutlined /> : <CaretRightOutlined />}
+        </span>
       </div>
       <div className="header-container">
         <div className="title">
