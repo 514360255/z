@@ -3,6 +3,8 @@ import { history } from 'umi';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import Header from './components/Header';
 import {createRef} from "react";
+import { notification } from 'antd';
+import { getStorage } from '@/utils/storage';
 
 const loginPath = '/user/login';
 
@@ -16,8 +18,7 @@ export async function getInitialState() {
   } = history;
   const fetchUserInfo = async () => {
     try {
-      const msg = await queryCurrentUser();
-      return msg.data;
+      return (await getStorage('userInfo')) || {};
     } catch (error) {
       history.push(loginPath);
     }
@@ -57,7 +58,21 @@ export const layout = props => {
     layout: 'side',
     fixedHeader: true,
     collapsed: initialState.collapsed,
-    onPageChange: () => redirectLogin(initialState),
+    onPageChange: () => {
+      const { location } = history; // 如果没有登录，重定向到 login
+
+      if (
+        (!initialState?.currentUser) &&
+        location.pathname !== loginPath
+      ) {
+        notification.error({
+          message: '验证失败',
+          description: '请重新登录',
+          onClose: () => history.push(loginPath),
+          duration: 0.5,
+        });
+      }
+    },
     menuHeaderRender: undefined,
     ...initialState?.settings,
   };

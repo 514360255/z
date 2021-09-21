@@ -1,37 +1,22 @@
-import { request } from 'umi';
+
+import request from '@/utils/request';
 
 /**
- * sms login
- * @param params
- * @returns {Promise<*>}
+ * 使用密码登录
+ * @param data
  */
-export const smsLogin = async (params) => {
-  return request('/worker/common/login/sms', {
+export const loginByPassword = (data) =>
+  request('/api/account/login', {
     method: 'POST',
-    data: params,
+    data,
   });
-};
 
 /**
- * login
- * @param params
- * @returns {Promise<*>}
+ * 退出登录
+ * @param data
  */
-export const login = async (params) => {
-  return request('/worker/common/login', {
+export const logout = (data) =>
+  request('/api/account/logout', {
     method: 'POST',
-    data: params,
+    data,
   });
-};
-
-/**
- * 注册
- * @param params
- * @returns {Promise<*>}
- */
-export const register = async (params) => {
-  return request('/worker/common/register', {
-    method: 'POST',
-    data: params,
-  });
-};

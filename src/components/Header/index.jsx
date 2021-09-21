@@ -1,16 +1,28 @@
 import React from 'react';
 import './index.less';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.jpg';
 import icon1 from '../../assets/icon1.png';
 import icon2 from '../../assets/icon2.png';
 import icon3 from '../../assets/icon3.png';
 import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
+import { logout } from '@/services/user';
+import { message } from 'antd';
+import { removeStorage } from '@/utils/storage';
+import {history} from 'umi';
 
 export default props => {
   const { initialState, initialState: { collapsed }, setInitialState } = props;
 
   const toggleCollapsed = () => {
     setInitialState({...initialState, collapsed: !collapsed});
+  }
+
+  const handleLogout = () => {
+    setInitialState((s) => ({ ...s, currentUser: undefined }));
+    removeStorage();
+    logout();
+    message.success('退出成功');
+    history.push(`/user/login`);
   }
 
   return (
@@ -36,7 +48,7 @@ export default props => {
               <span className="username">昵称：修改</span>
               <span>用户名称：罗的</span>
             </div>
-            <div className="outlogin">
+            <div className="outlogin" onClick={handleLogout}>
               <img src={icon3} alt="" />
               <span>退出</span>
             </div>

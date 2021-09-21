@@ -2,8 +2,9 @@ import React from 'react';
 import {Button, Col, DatePicker, Form, Input, Row, Select, Space} from "antd";
 import './index.less';
 import icon6 from '../../assets/icon6.png';
+import moment from 'moment';
 
-export default props => {
+export default () => {
   const [form] = Form.useForm();
   return(
     <>
@@ -13,7 +14,7 @@ export default props => {
             <span className='label'>用人单位：</span>
             <Space>
               <Form.Item>
-                <Select placeholder='--选择--' options={[{label: 'test', value: 1}, {label: 'test', value: 2}]} />
+                <Select defaultValue={1} placeholder='--选择--' options={[{label: '上海俊鹏建筑劳务有限公司', value: 1}]} />
               </Form.Item>
               <Space>
                 <span className='title'>劳务队长</span>
@@ -36,20 +37,20 @@ export default props => {
           <Col span={12} className='form-item'>
             <span className='label'>主要工种：</span>
             <Form.Item>
-              <Select placeholder='--选择--' options={[{label: 'test', value: 1}, {label: 'test', value: 2}]} />
+              <Select placeholder='--选择--' options={[]} />
             </Form.Item>
           </Col>
           <Col span={12} className='form-item'>
             <span className='label'>进场状态：</span>
             <Form.Item>
-              <Select placeholder='--选择--' options={[{label: 'test', value: 1}, {label: 'test', value: 2}]} />
+              <Select placeholder='--选择--' options={[]} />
             </Form.Item>
           </Col>
           <Col span={12} className='form-item form-date'>
             <span className='label'>进场日期：</span>
             <Space>
               <Form.Item>
-                <DatePicker />
+                <DatePicker defaultValue={moment('2018-06-01')} />
               </Form.Item>
               <span className='title'>--</span>
               <Form.Item>

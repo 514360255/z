@@ -9,15 +9,11 @@
 export default {
   dev: {
     '/api/': {
-      target: 'https://preview.pro.ant.design',
+      target: 'http://8.135.101.70:8086',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
       },
-    },
-    '/worker': {
-      target: 'https://zb-api.basicthinking.cn/mock/11',
-      changeOrigin: true,
     },
   },
   test: {

@@ -10,6 +10,7 @@ export default props => {
       scroll={{y: 'calc(100vh - 330px)'}}
       bordered={bordered}
       size="small"
+      rowKey='id'
       columns={columns}
       dataSource={dataSource}
       rowClassName={(record, index) => index % 2 === 1 ? 'row-color' : ''}

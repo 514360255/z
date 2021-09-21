@@ -11,4 +11,6 @@ export default {
   'menu.supervisionReport': '监理报告',
   'menu.buildingMaterialsRegistration': '建材使用登记',
   'menu.login': '登录',
+  'pages.login.failure': '登录失败，请重试！',
+  'pages.login.success': '登录成功！',
 };
