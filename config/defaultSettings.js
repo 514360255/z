@@ -6,7 +6,7 @@ const Settings = {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '测试',
+  title: '上海市住房和城乡建设管理委员会网上政务大厅',
   pwa: false,
   iconfontUrl: '',
 };
