@@ -1,7 +1,7 @@
 import request from '@/utils/request';
 
-export const getSearch = (data) => request({
+export const getSearch = (params) => request({
   url: '/api/corp/getCorpListOfPartition',
-  method: 'POST',
-  data
+  method: 'GET',
+  params
 })
