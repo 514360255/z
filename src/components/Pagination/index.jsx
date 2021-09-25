@@ -47,7 +47,7 @@ export default props => {
         </div>
         <span className='line' />
         <div className='pagination-btn'>
-          <img src={icon13} alt="" onClick={() => handlePageData(pageNumber <= totalPage ? pageNumber + 1 : totalPage)}/>
+          <img src={icon13} alt="" onClick={() => handlePageData(pageNumber < totalPage ? pageNumber + 1 : totalPage)}/>
           <img src={icon14} alt="" onClick={() => handlePageData(totalPage)}/>
         </div>
         <span className='line' />
